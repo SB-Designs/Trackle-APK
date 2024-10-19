@@ -1,0 +1,24 @@
+{
+  "name": "me.glitch.trackle",
+  "displayName": "Trackle",
+  "version": "1.0.0",
+  "description": "Trackle™ is an engaging game where players test their knowledge by attempting to name all the stations within the TfL network. This includes the London Underground, the DLR, the Elizabeth Line, the London Overground, the Cable Car, and London Trams. ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "SB Studios",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^13.0.0",
+    "cordova-browser": "^7.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "browser",
+      "android"
+    ]
+  }
+}
