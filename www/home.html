@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trackle™</title>
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      @font-face{font-family:london tube;font-style:normal;font-weight:400;src:local('London Tube'),url("/assets/London-Tube.woff") format('woff')}
+    </style>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/roundel.ico"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="/assets/icon-180x180.png"
+        alt="Logo"
+      /><br />
+      <h1>Trackle™</h1>
+    </header>
+
+    <main>
+      <p>
+        <b>What is Trackle™?</b> Trackle™ is a game, in which players attempt to
+        guess all the stations in: the London Underground; the DLR, Cable Car
+        and Elizabeth Line; the London Overground; or the London Trams.
+      </p>
+
+      <div class="game-buttons">
+        <h2>Pick A Game Mode</h2>
+        <a href="tube.html">
+          <button
+            class="styled-button"
+            style="background-color: #000f9f"
+            onmouseover="this.style.backgroundColor='#030f8a';"
+            onmouseout="this.style.backgroundColor='#000f9f';"
+          >
+            London Underground
+          </button>
+        </a>
+        <a href="DCE.html"
+          ><button
+            class="styled-button"
+            style="background-color: #60399e"
+            onmouseover="this.style.backgroundColor='#3c2363';"
+            onmouseout="this.style.backgroundColor='#60399E';"
+          >
+            DLR, Cable Car &amp; Elizabeth Line
+          </button></a
+        >
+        <a href="LO.html"
+          ><button
+            class="styled-button"
+            style="background-color: #fa7b05"
+            onmouseover="this.style.backgroundColor='#c2640e';"
+            onmouseout="this.style.backgroundColor='#FA7B05';"
+          >
+            London Overground
+          </button></a
+        >
+        <a href="LT.html"
+          ><button
+            class="styled-button"
+            style="background-color: #5fb526"
+            onmouseover="this.style.backgroundColor='#4c8c22';"
+            onmouseout="this.style.backgroundColor='#5FB526';"
+          >
+            London Trams
+          </button></a
+        >
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        <b>Trackle™️ &#169; SB Designs 2024</b><br />The name Trackle and its
+        logo are trademarks of SB Designs.<br />Version 2.1.0<br />Ported to Cordova by TurquoiseTNT
+      </p>
+      <!-- Consistent Share Button Design -->
+      <button
+        id="shareButton"
+        class="styled-button"
+        style="background-color: #000f9f"
+        onmouseover="this.style.backgroundColor='#030f8a';"
+        onmouseout="this.style.backgroundColor='#000f9f';"
+      >
+        🔗 Share Trackle™
+      </button>
+      <a href="mailto:hello@trackle.serv00.net"
+        ><button
+          class="styled-button"
+          style="background-color: #000f9f"
+          onmouseover="this.style.backgroundColor='#030f8a';"
+          onmouseout="this.style.backgroundColor='#000f9f';"
+        >
+          📧 Contact
+        </button></a
+      >
+      <a href="https://sbdesigns.netlify.app"
+        ><button
+          class="styled-button"
+          style="background-color: #000f9f"
+          onmouseover="this.style.backgroundColor='#030f8a';"
+          onmouseout="this.style.backgroundColor='#000f9f';"
+        >
+          🖱️ SB Designs
+        </button></a
+      >
+    </footer>
+
+    <script>
+      // Share functionality
+      const shareButton = document.getElementById("shareButton");
+
+      shareButton.addEventListener("click", async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: "Trackle™",
+              text: "Play Trackle™️ today and attempt to guess all of the stations on the TfL network! Play now at https://trackle.glitch.me!",
+            });
+            console.log("Trackle™ shared successfully!");
+          } catch (error) {
+            console.error("Error sharing Trackle™:", error);
+          }
+        } else {
+          alert(
+            "Sharing is not supported on this browser. Try using a mobile device."
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
