@@ -1,0 +1,232 @@
+:root {
+    --color-bg: rgb(0, 15, 159);
+    --color-text-main: #000000;
+    --color-primary: #ffff00;
+    --wrapper-height: 87vh;
+    --image-max-width: 300px;
+    --image-margin: 3rem;
+    --font-family: "HK Grotesk";
+    --font-family-header: "HK Grotesk";
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  
+  /* Import fonts */
+  @font-face {
+    font-family: HK Grotesk;
+    src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
+      format("opentype");
+  }
+  @font-face {
+    font-family: HK Grotesk;
+    font-weight: bold;
+    src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
+      format("opentype");
+  }
+  
+  .btn--remix {
+    font-family: var(--font-family);
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    font-weight: 500;
+    align-items: center;
+    cursor: pointer;
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+    white-space: nowrap;
+    position: fixed;
+    right: 2px;
+    bottom: 20px;
+  }
+  .btn--remix img {
+    margin-right: 0.5rem;
+    width: 12px;
+  }
+  .btn--remix:hover {
+    background-color: #d0fff1;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .btn--remix {
+      display: none;
+    }
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+  }
+  
+  h1 {
+    font-size: 1.4rem;
+  }
+  
+  .game {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  #mapContainer {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+  }
+  
+  .inputForm {
+    height: 100px;
+    width: 400px;
+    z-index: 1;
+  }
+  
+  .pageOverlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 24px 0 0;
+    background-color: #ffffff;
+    z-index: 1;
+    border: 1px solid var(--color-bg);
+  }
+  
+  .credits {
+    padding: 8px;
+    z-index: 1;
+    font-size: 0.7rem;
+    border-top: 1px solid var(--color-bg);
+  }
+  
+  #scoreContainer {
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: end;
+    font-size: 1.8rem;
+  }
+  
+  .formContainer {
+    position: absolute;
+    top: 1rem;
+    z-index: 1;
+    padding: 0 1rem;
+    width: 100%;
+  }
+  
+  .form {
+    position: sticky;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    gap: 0.5rem;
+  }
+  
+  input {
+    text-transform: uppercase;
+    width: 100%;
+    display: inline-block;
+    border: 2px solid var(--color-bg);
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 16px 0px;
+    z-index: 10;
+  }
+  
+  input::placeholder {
+    color: rgb(123, 134, 140);
+  }
+  
+  #share svg {
+    width: 24px;
+    padding-top: 12px;
+    margin-top: -14px;
+    margin-left: 0.5rem;
+    margin-right: 4px;
+  }
+  
+  .enterButton {
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.8) 0px 7px 29px 0px;
+    border: none;
+  }
+  
+  .header {
+    max-width: 90vw;
+    margin: 1rem auto;
+    color: white;
+  }
+  
+  #instructions p {
+    margin: 0 0 1rem 0;
+  }
+  
+  .place-tooltip {
+    font-weight: bold;
+    color: var(--color-bg) !important;
+    margin-left: 18px !important;
+  }
+  
+  .resetButton {
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.8) 0px 7px 29px 0px;
+    border: none;
+  }
+  .maintenance-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    text-align: center;
+  }
+  
+  .maintenance-content {
+    max-width: 600px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 16px 0px;
+  }
+  
+  .maintenance-content h1 {
+    font-family: var(--font-family-header);
+    color: var(--color-primary);
+  }
+  
+  .maintenance-content p {
+    font-family: var(--font-family);
+  }
+  
+  .maintenance-content img {
+    max-width: var(--image-max-width);
+    margin-top: var(--image-margin);
+  }
+  
