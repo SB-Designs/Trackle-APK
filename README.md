@@ -1,5 +1,7 @@
 <h1>Trackle™️ APK</h1>
 
 <h1>Credits</h1>
-- SB Designs: Trackle™️ Website/App
-- TurquoiseTNT: Cordova and APK Code
+<ul>
+<li>SB Designs: Trackle™️ Website/App</li>
+<li>TurquoiseTNT: Cordova and APK Code</li>
+<ul>
