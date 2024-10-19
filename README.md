@@ -1,1 +1,5 @@
-# Trackle by SB Studios but more native and more offline
+#Trackle™️ APK
+
+#Credits
+- SB Designs: Trackle™️ Website/App
+- TurquoiseTNT: Cordova and APK Code
