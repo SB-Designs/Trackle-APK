@@ -24,7 +24,7 @@ jobs:
   #        name: platforms.zip
   #        path: platforms.zip
   Build-Android-App:
-    runs-on: macos-13
+    runs-on: macos-13-xlarge
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
