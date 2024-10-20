@@ -1,6 +1,5 @@
 name: Cordova Build Apps
 run-name: build version cordova apps
-on: [push]
 jobs:
   ## Commented Out iOS Build as it currently does not work as there is no apple dev cert (costs £100/year - might see if school has an edu one)
   #Build-Unsigned-iOS-App:
