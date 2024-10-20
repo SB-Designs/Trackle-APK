@@ -28,8 +28,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: Install Cordova
-        run: npm install -g cordova
       - name: Add Cordova Platform Android
         run: cordova platform add android
       - name: Build aab
