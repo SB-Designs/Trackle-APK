@@ -29,11 +29,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Add Cordova Platform Android
-        run: cordova platform add android
+        run: bash cordova platform add android
       - name: Build aab
-        run: cordova build android --release
+        run: bash cordova build android --release
       - name: Build apk
-        run: cordova build android --release -- --packageType=apk
+        run: bash cordova build android --release -- --packageType=apk
       - name: Uploading Release AAB
         uses: actions/upload-artifact@v4
         with:
