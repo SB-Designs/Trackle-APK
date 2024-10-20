@@ -73,6 +73,14 @@
             London Trams
           </button></a
         >
+        <button
+          class="styled-button"
+          id="roundleButton"
+          style="background: linear-gradient(90deg, rgba(0,15,159,1) 0%, rgba(0,15,159,1) 24%, rgba(96,57,158,1) 24%, rgba(96,57,158,1) 48%, rgba(250,123,5,1) 48%, rgba(250,123,5,1) 72%, rgba(95,181,38,1) 72%, rgba(95,181,38,1) 100%);"
+          onmouseover="this.style.backgroundColor='#4c8c22';"
+          onmouseout="this.style.backgroundColor='#5FB526';">
+          Roundle Board Game
+        </button>
       </div>
     </main>
 
@@ -124,6 +132,7 @@
       }
       // Share functionality
       const shareButton = document.getElementById("shareButton");
+      const roundleButton = document.getElementById("roundleButton");
 
       shareButton.addEventListener("click", async () => {
         if (navigator.share) {
@@ -141,6 +150,21 @@
             "Link Copied to Clipboard!"
           );
           navigator.clipboard.writeText("Play Trackle™️ today and attempt to guess all of the stations on the TfL network! Play now at https://tracklebeta.pages.dev !");
+        }
+      });
+      roundleButton.addEventListener("click", async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: "Trackle™",
+              files: ["roundle/roundle.pdf"],
+            });
+            console.log("Roundle™ shared successfully!");
+          } catch (error) {
+            console.error("Error sharing Roundle™:", error);
+          }
+        } else {
+          window.location.href = "roundle/roundle.pdf";
         }
       });
       document.getElementById("newdes").addEventListener("click", async () => {

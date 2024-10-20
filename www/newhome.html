@@ -20,6 +20,7 @@
     <button class="btn" id="btn2">DLR, Elizabeth & Cable Car</button>
     <button class="btn" id="btn3">Overground</button>
     <button class="btn" id="btn4">Trams</button>
+    <button class="btn" id="btn5">Roundle Board Game</button>
     <center>
         <p><a href="https://sbdesigns.netlify.app">Made by SB Designs</a> <a href="/disable-new-design.html">[Disable New Design?]</a></p>
     </center>
@@ -29,6 +30,7 @@
     const dceBtn = document.getElementById("btn2");
     const overgroundBtn = document.getElementById("btn3");
     const tramsBtn = document.getElementById("btn4");
+    const roundleButton = document.getElementById("btn5");
 
     undergroundBtn.addEventListener("click", async () => {
         window.location.href = "/tube.html"
@@ -41,6 +43,25 @@
     });
     tramsBtn.addEventListener("click", async () => {
         window.location.href = "/LT.html"
+    });
+    roundleButton.addEventListener("click", async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "Trackle™",
+            files: ["roundle/roundle.pdf"],
+          });
+          console.log("Roundle™ shared successfully!");
+        } catch (error) {
+          console.error("Error sharing Roundle™:", error);
+        }
+      } else {
+        window.location.href = "roundle/roundle.pdf";
+      }
+    });
+    document.getElementById("newdes").addEventListener("click", async () => {
+      localStorage.setItem("newDesign", "true");
+      window.location.href = "/newhome.html";
     });
 </script>
 </html>

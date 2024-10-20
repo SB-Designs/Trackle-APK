@@ -26,7 +26,7 @@ body, html {
 /* Common styles for buttons */
 .btn {
     width: 100%;
-    height: calc(25vh - 2.5vh);
+    height: calc(25vh - 4vh);
     border: none;
     font-size: 24px;
     color: white;
@@ -49,7 +49,11 @@ body, html {
 
 #btn4 {
     background-color: #5FB526;
+}
+#btn5 {
+    height: 6vh;
     border-radius: 0px 0px 25px 25px;
+    background: linear-gradient(90deg, rgba(0,15,159,1) 0%, rgba(0,15,159,1) 24%, rgba(96,57,158,1) 24%, rgba(96,57,158,1) 48%, rgba(250,123,5,1) 48%, rgba(250,123,5,1) 72%, rgba(95,181,38,1) 72%, rgba(95,181,38,1) 100%);
 }
 
 #btn1:hover {
