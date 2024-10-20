@@ -79,7 +79,7 @@
     <footer>
       <p>
         <b>Trackle™️ &#169; SB Designs 2024</b><br />The name Trackle and its
-        logo are trademarks of SB Designs.<br />Version 2.1.0<br />Ported to Cordova by TurquoiseTNT
+        logo are trademarks of SB Designs.<br />Version 2.10.1<br />Ported to Cordova by TurquoiseTNT
       </p>
       <!-- Consistent Share Button Design -->
       <button
@@ -111,9 +111,17 @@
           🖱️ SB Designs
         </button></a
       >
+      Update to the New Design?
+      <label class="switch">
+        <input id="newdes" type="checkbox">
+        <span class="slider"></span>
+      </label>
     </footer>
 
     <script>
+      if (localStorage.getItem("newDesign") === "true") {
+        window.location.href = "/newhome.html";
+      }
       // Share functionality
       const shareButton = document.getElementById("shareButton");
 
@@ -122,7 +130,7 @@
           try {
             await navigator.share({
               title: "Trackle™",
-              text: "Play Trackle™️ today and attempt to guess all of the stations on the TfL network! Play now at https://trackle.glitch.me!",
+              text: "Play Trackle™️ today and attempt to guess all of the stations on the TfL network! Play now at https://tracklebeta.pages.dev !",
             });
             console.log("Trackle™ shared successfully!");
           } catch (error) {
@@ -130,9 +138,14 @@
           }
         } else {
           alert(
-            "Sharing is not supported on this browser. Try using a mobile device."
+            "Link Copied to Clipboard!"
           );
+          navigator.clipboard.writeText("Play Trackle™️ today and attempt to guess all of the stations on the TfL network! Play now at https://tracklebeta.pages.dev !");
         }
+      });
+      document.getElementById("newdes").addEventListener("click", async () => {
+        localStorage.setItem("newDesign", "true");
+        window.location.href = "/newhome.html";
       });
     </script>
   </body>

@@ -80,6 +80,7 @@ function loadPage() {
 
   app = new App();
   app.initialize();
-
+  var london = L.polygon([[51.78347654668593,-0.633547777426019],[51.15318960097732,-0.6262096314495935,],[51.15117220714314,0.4452995803654325],[51.79071440048644,0.447383684146665]]);
+  map.setMaxBounds(london.getBounds());
   document.getElementById("guess").focus();
 }

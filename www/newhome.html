@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackle™️ [Beta Layout]</title>
+    <link rel="stylesheet" href="styles-new.css">
+    <style>
+        @font-face{font-family:london tube;font-style:normal;font-weight:400;src:local('London Tube'),url("/assets/London-Tube.woff") format('woff')}
+    </style>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/roundel.ico"
+    />
+</head>
+<body>
+    <div id="trackle"><img src="/assets/trackletitlenew.png" alt="Logo" height="100%"/></div>
+    <button class="btn" id="btn1">Underground</button>
+    <button class="btn" id="btn2">DLR, Elizabeth & Cable Car</button>
+    <button class="btn" id="btn3">Overground</button>
+    <button class="btn" id="btn4">Trams</button>
+    <center>
+        <p><a href="https://sbdesigns.netlify.app">Made by SB Designs</a> <a href="/disable-new-design.html">[Disable New Design?]</a></p>
+    </center>
+</body>
+<script>
+    const undergroundBtn = document.getElementById("btn1");
+    const dceBtn = document.getElementById("btn2");
+    const overgroundBtn = document.getElementById("btn3");
+    const tramsBtn = document.getElementById("btn4");
+
+    undergroundBtn.addEventListener("click", async () => {
+        window.location.href = "/tube.html"
+    });
+    dceBtn.addEventListener("click", async () => {
+        window.location.href = "/DCE.html"
+    });
+    overgroundBtn.addEventListener("click", async () => {
+        window.location.href = "/LO.html"
+    });
+    tramsBtn.addEventListener("click", async () => {
+        window.location.href = "/LT.html"
+    });
+</script>
+</html>

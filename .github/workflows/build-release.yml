@@ -1,0 +1,104 @@
+name: Cordova Build Apps
+run-name: build version cordova apps
+on: [push]
+jobs:
+  ## Commented Out iOS Build as it currently does not work as there is no apple dev cert (costs £100/year - might see if school has an edu one)
+  #Build-Unsigned-iOS-App:
+  #  runs-on: macos-13
+  #  steps:
+  #    - name: Check out repository code
+  #      uses: actions/checkout@v4
+  #    - name: Install Cordova
+  #      run: npm install -g cordova
+  #    - name: Add Cordova Platform iOS
+  #      run: cordova platform add ios
+  #    - name: Build ipa
+  #      run: cordova build ios --prod --release --buildFlag="CODE_SIGN_IDENTITY=''" --buildFlag="CODE_SIGNING_REQUIRED=NO" --buildFlag="CODE_SIGN_ENTITLEMENTS=''" --buildFlag="CODE_SIGNING_ALLOWED=NO"
+  #    - name: Compress PLATFORMS folder for archival
+  #      run: zip -vr platforms.zip platforms/ -x "*.DS_Store"
+  #    - name: Uploading Release ZIP
+  #      uses: actions/upload-artifact@v4
+  #      with:
+  #        name: platforms.zip
+  #        path: platforms.zip
+  Build-Android-App:
+    runs-on: macos-13
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Tap Homebrew
+        run: brew tap homebrew/cask
+      - name: Install Android Tools
+        run: brew install --cask android-sdk
+      - name: Add Cordova Platform Android
+        run: cordova platform add android
+      - name: Build aab
+        run: cordova build android --release
+      - name: Build apk
+        run: cordova build android --release -- --packageType=apk
+      - name: Uploading Release AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: Trackle AAB
+          path: platforms/android/app/build/outputs/bundle/release/app-release.aab
+      - name: Uploading Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-unsigned.apk
+          path: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+  ## Commented Out all Electron Builds as Issues occur in the final outputs
+  #Build-WinElectron-App:
+  #  runs-on: windows-latest
+  #  steps:
+  #    - name: Check out repository code
+  #      uses: actions/checkout@v4
+  #    - name: Install Cordova
+  #      run: npm install -g cordova
+  #    - name: Add Cordova Platform Electron
+  #      run: cordova platform add electron
+  #    - name: Build app
+  #      run: cordova build electron --release
+  #    - name: Uploading Release Setup
+  #      uses: actions/upload-artifact@v4
+  #      with:
+  #        name: Trackle Windows
+  #        path: platforms/electron/build/Trackle Setup *.exe
+  #        if-no-files-found: error
+  #Build-LinElectron-App:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Check out repository code
+  #      uses: actions/checkout@v4
+  #    - name: Install Cordova
+  #      run: npm install -g cordova
+  #    - name: Add Cordova Platform Electron
+  #      run: cordova platform add electron
+  #    - name: Build app
+  #      run: cordova build electron --release
+  #    - name: Uploading Release Tar
+  #      uses: actions/upload-artifact@v4
+  #      with:
+  #        name: Trackle Linux
+  #        path: platforms/electron/build/me.glitch.trackle-*.tar.gz
+  #        if-no-files-found: error
+  #Build-MacElectron-App:
+  #  runs-on: macos-latest
+  #  steps:
+  #    - name: Check out repository code
+  #      uses: actions/checkout@v4
+  #    - name: Install Cordova
+  #      run: npm install -g cordova
+  #    - name: Add Cordova Platform Electron
+  #      run: cordova platform add electron
+  #    - name: Build app
+  #      run: cordova build electron --release
+  #    - name: Zip Release
+  #      run: zip -vr platforms.zip platforms/ -x "*.DS_Store"
+  #    - name: Uploading Release Tar
+  #      uses: actions/upload-artifact@v4
+  #      with:
+  #        name: platforms.zip
+  #        path: platforms.zip
+  #        if-no-files-found: error

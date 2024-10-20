@@ -1,5 +1,9 @@
 function goHome() {
-  window.location.href = "/home.html";
+  if (localStorage.getItem("newDesign") === "true") {
+    window.location.href = "/newhome.html";
+  } else {
+    window.location.href = "/home.html";
+  }
 }
 function enterGuess() {
     app.enterGuess();
@@ -109,10 +113,6 @@ function enterGuess() {
       title: "Trackle™ - The Tube Guessing Game",
       text: shareText,
       url: window.location.href,
-    };
-    document.getElementById("share").onclick = (e) => {
-      e.preventDefault();
-      navigator.share(shareData);
     };
   
     if (score == this.placeList.length) {
